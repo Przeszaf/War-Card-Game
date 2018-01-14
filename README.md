@@ -1,12 +1,15 @@
 # Card Game War
 
 In this project, I developed a tool to simulate a number of plays of classical card game - War.
+
 A full 52-card deck is shuffled and then dealed to 2 players. Each player has, at the beginning, 26 cards. Then, the 1st card of a deck is shown at the table and the player with higher card wins, and takes both cards to the end of his deck.
+
 If it is a tie, then the 2nd card is put face down on the table and doesn't matter in this battle. The 3rd card is the one that is important - player with higher card wins. If it is tie again, then the 4th card is put face down, and the 5th one fights etc.
 
 Due to this, the player with weaker deck can still win. Consider, for example, first 3 cards of 2 decks:
 
 Deck A - 7, Ace, 4
+
 Deck B - 7, 2, 6
 
 As it is tie between first cards (7 and 7), then the Ace doesn't matter as it is put face down, and the player B wins this round, getting the Ace to his hand.
