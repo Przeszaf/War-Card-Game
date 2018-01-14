@@ -23,8 +23,11 @@ Data consists of CSV files:
 5. losingDecksInitial.csv - Initial deck of losing hand
 
 Power of card is its number, i.e. 2 for 2, 3 for 3, 11 for J, 12 for Q, 13 for K, 14 for A.
+
 Strong cards are defined as being 8 and higher, i.e. 8, 9, 10, J, Q, K, A
+
 Strongest cards are defined as being 11 and higher, i.e. J, Q, K, A
+
 Strength of deck is a sum of power of all cards in initial deck.
 
 
