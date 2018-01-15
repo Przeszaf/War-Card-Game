@@ -40,7 +40,7 @@ class Results {
         var results4 = ""
         var results5 = ""
         for i in 0..<winningDeckStrength.count {
-            results1 += "\(winningDeckStrength[i]),\(winningDeckPowerOfStrongCards),\(winningDeckPowerOfStrongestCard),\(winningDeckAmountOfStrongCards[i]),\(winningDeckAmountOfStrongestCards[i]),\(countArray[i])\n"
+            results1 += "\(winningDeckStrength[i]),\(winningDeckPowerOfStrongCards[i]),\(winningDeckPowerOfStrongestCard[i]),\(winningDeckAmountOfStrongCards[i]),\(winningDeckAmountOfStrongestCards[i]),\(countArray[i])\n"
             results3 += "\n"
             results4 += "\n"
             results5 += "\n"
