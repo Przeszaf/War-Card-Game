@@ -50,7 +50,10 @@ class Results {
                 results5 += "\(losingDeckInitial[i][j]),"
             }
             print("Saving files: \(i+1)/\(winningDeckStrength.count)")
+            //Deleting ',' at the end of each line
             results3.removeLast()
+            results4.removeLast()
+            results5.removeLast()
         }
         
         let results2 = "Total Count,Ties,Double ties,Triple ties,Quadruple ties,Five ties,Six or more ties\n\(totalCount),\(ties[1]),\(ties[2]),\(ties[3]),\(ties[4]),\(ties[5]),\(ties[6])"
