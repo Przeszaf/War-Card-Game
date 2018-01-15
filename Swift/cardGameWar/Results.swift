@@ -36,17 +36,11 @@ class Results {
     func writeToFile() {
         //Content of files, CSV format
         var results1 = "Strength Winning Deck,Strong Cards Power Winning Deck,Strongest Cards Power Winning Deck,Amount of Strong Cards Winning Deck,Amount of Strongest Cards Winning Deck,Count of plays\n"
-        for i in 0..<winningDeckStrength.count {
-            results1 += "\(winningDeckStrength[i]),\(winningDeckPowerOfStrongCards),\(winningDeckPowerOfStrongestCard),\(winningDeckAmountOfStrongCards[i]),\(winningDeckAmountOfStrongestCards[i]),\(countArray[i])\n"
-            print(i)
-        }
-        
-        let results2 = "Total Count,Ties,Double ties,Triple ties,Quadruple ties,Five ties,Six or more ties\n\(totalCount),\(ties[1]),\(ties[2]),\(ties[3]),\(ties[4]),\(ties[5]),\(ties[6])"
-        
         var results3 = ""
         var results4 = ""
         var results5 = ""
-        for i in 0 ..< winningDeckInitial.count {
+        for i in 0..<winningDeckStrength.count {
+            results1 += "\(winningDeckStrength[i]),\(winningDeckPowerOfStrongCards),\(winningDeckPowerOfStrongestCard),\(winningDeckAmountOfStrongCards[i]),\(winningDeckAmountOfStrongestCards[i]),\(countArray[i])\n"
             results3 += "\n"
             results4 += "\n"
             results5 += "\n"
@@ -55,8 +49,12 @@ class Results {
                 results4 += "\(winningDeckInitial[i][j]),"
                 results5 += "\(losingDeckInitial[i][j]),"
             }
+            print("Saving files: \(i+1)/\(winningDeckStrength.count)")
             results3.removeLast()
         }
+        
+        let results2 = "Total Count,Ties,Double ties,Triple ties,Quadruple ties,Five ties,Six or more ties\n\(totalCount),\(ties[1]),\(ties[2]),\(ties[3]),\(ties[4]),\(ties[5]),\(ties[6])"
+        
         
         //Filenames
         let file = "winningDeckStrengths.csv"
@@ -79,6 +77,7 @@ class Results {
                 try results3.write(to: fileURL3, atomically: false, encoding: .utf8)
                 try results4.write(to: fileURL4, atomically: false, encoding: .utf8)
                 try results5.write(to: fileURL5, atomically: false, encoding: .utf8)
+                print("All items saved!")
             } catch {
                 print(error)
             }

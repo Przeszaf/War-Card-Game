@@ -10,10 +10,11 @@ import Foundation
 
 let results = Results()
 let help = Helper(results: results)
-
 var fullCardDeck = [Int]()
 
-for countOfRuns in 1...100 {
+let numberOfRuns = 1000
+
+for countOfRuns in 1...numberOfRuns {
     
     //Create a full deck of cards
     for i in 0...51 {
@@ -69,22 +70,8 @@ for countOfRuns in 1...100 {
         }
         counter += 1
     }
-    print(countOfRuns)
+    print("Playing War: \(countOfRuns)/\(numberOfRuns)")
 }
-
-print(results.countArray)
-print(results.ties)
-print(results.losingDeckInitial[1])
-print(results.losingDeckStrength)
-print(results.winningDeckStrength)
-
-var sumWinning = 0
-var sumLosing = 0
-for i in 0..<results.winningDeckStrength.count {
-    sumWinning += results.winningDeckStrength[i]
-    sumLosing += results.losingDeckStrength[i]
-}
-print("Sum of winning cards: \(sumWinning), sum of losing cards: \(sumLosing)")
 
 
 results.writeToFile()
