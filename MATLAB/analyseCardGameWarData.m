@@ -1,6 +1,3 @@
-% Loading all the data from .csv files to workspace
-run("loadCSVData.m")
-
 % Values of average deck card (2 2s, 2 3s, 2 4s etc.)
 avgPow = 208;
 avgPowStrong = 154;
@@ -69,7 +66,7 @@ for i = 1:length(winPow)
     winPowProbInd = (length(winPowProb) + 1)/2  + (winPow(i) - avgPow);
     winPowStrongProbInd = (length(winPowStrongProb) + 1)/2  + (winPowStrong(i) - avgPowStrong);
     winPowStrongestProbInd = (length(winPowStrongestProb) + 1)/2  + (winPowStrongest(i) - avgPowStrongest);
-    winAmountStrongInd = (length(winAmountStrongProb) +1) /2 + (winAmountStrong(i) - maxAmountStrong /2);
+    winAmountStrongInd = (length(winAmountStrongProb) +1) /2 + (winAmountStrong(i) - avgAmountStrong);
     winAmountStrongestInd = (length(winAmountStrongestProb) +1) /2 + (winAmountStrongest(i) - maxAmountStrongest /2);
     
     winPowProb(2, winPowProbInd) = winPowProb(2, winPowProbInd) +1;
@@ -162,7 +159,7 @@ end
 midInd = (length(winAmountStrongProb) + 1)/2;
 for i = 0 : (length(winAmountStrongProb) - 1) / 2
     if  winAmountStrongProb(2, midInd + i) == 0 && winAmountStrongProb(2, midInd - i) == 0
-        winAmountStrongProbOfWinInPerc(2, midInd + i) = NaN;
+        winAmountStrongProbOfWinInPerc(2, midInd + i) = 100;
     elseif winAmountStrongProb(2, midInd + i) == 0 
         winAmountStrongProbOfWinInPerc(2, midInd + i) = 0;
     elseif winAmountStrongProb(2, midInd - i) == 0 
@@ -180,13 +177,15 @@ for i = 1:length(countProb)
     countProb(1,i) = i;
 end
 countProbInPerc = countProb;
+countProb2 = countProb;
 
 for i = 1:length(count)
     countProb(2,count(i)) = countProb(2,count(i)) + 1;
 end
 
+sum = 0;
 for i = 1:length(countProb)
     countProbInPerc(2,i) = countProb(2,i) * 100 / length(count);
+    sum = sum + countProbInPerc(2,i);
+    countProb2(2,i) = sum;
 end
-
-% run('clearWorkspace.m')
