@@ -12,7 +12,7 @@ let results = Results()
 let help = Helper(results: results)
 var fullCardDeck = [Int]()
 
-let numberOfRuns = 1000
+let numberOfRuns = 1000000
 
 for countOfRuns in 1...numberOfRuns {
     
